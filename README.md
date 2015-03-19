@@ -23,22 +23,22 @@ After creating the PCL you can create the iOS and Android projects.
 1. Right-click your solution in the solution navigator(?)
 2. Go to `Add`. And `Add New Project...`
 
-![IMAGE](http://hosting.monterosa.se//fmtk/tutorial/Screen%20Shot%202015-03-18%20at%2019.56.15.png =640x0)
+![IMAGE](/images/Screen%20Shot%202015-03-18%20at%2019.56.15.png =640x0)
 
 1. Create empty iPhone project.
 2. Name it `weather-xamarin-ios`
 
-![IMAGE](http://hosting.monterosa.se//fmtk/tutorial/Screen%20Shot%202015-03-18%20at%2019.47.34.png =640x0)
+![IMAGE](/images/Screen%20Shot%202015-03-18%20at%2019.47.34.png =640x0)
 
 #####Android
 1. Right-click your solution in the solution navigator(?)
 2. Go to `Add`. And `Add New Project...`
 
-![IMAGE](http://hosting.monterosa.se//fmtk/tutorial/Screen%20Shot%202015-03-18%20at%2019.56.15.png =640x0)
+![IMAGE](/images/Screen%20Shot%202015-03-18%20at%2019.56.15.png =640x0)
 
 1. Create Android Application
 2. Name it `weather-xamarin-android`
-![IMAGE](http://hosting.monterosa.se//fmtk/tutorial/Screen%20Shot%202015-03-18%20at%2020.01.33.png =640x0)
+![IMAGE](/images/Screen%20Shot%202015-03-18%20at%2020.01.33.png =640x0)
 
 ###Correct formating *(optional)*
 To make auto formating look the way I want it you should open your `.sln` file in the rootfolder of your project in a text editor of choise.
@@ -475,7 +475,7 @@ namespace weatherxamarinshared {
 ###Reference your PLC
 We need to add the PCL reference to our ios and android projects. Just drag-and-drop the shared project into the `Reference` folder in the ios and android project. It should look like this.
 
-![IMAGE](http://hosting.monterosa.se//fmtk/tutorial/Screen%20Shot%202015-03-18%20at%2021.56.13.png =320x0)
+![IMAGE](/images/Screen%20Shot%202015-03-18%20at%2021.56.13.png =320x0)
 
 ###iOS
 
@@ -638,7 +638,7 @@ namespace weatherxamarinios {
 
 ##### Run the app and BOOM!
 
-![IMAGE](http://hosting.monterosa.se//fmtk/tutorial/IMG_1537.PNG =0x420)
+![IMAGE](/images/IMG_1537.PNG =0x420)
 
 ###Android
 Set your Android project as start up project.
@@ -769,4 +769,4 @@ namespace weatherxamarinandroid {
 ```
 
 ##### Run the app and BOOM!
-![IMAGE](http://hosting.monterosa.se//fmtk/tutorial/Screenshot_2015-03-19-09-44-46.png =0x420)
+![IMAGE](/images/Screenshot_2015-03-19-09-44-46.png =0x420)
