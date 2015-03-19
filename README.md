@@ -475,7 +475,7 @@ namespace weatherxamarinshared {
 ###Reference your PLC
 We need to add the PCL reference to our ios and android projects. Just drag-and-drop the shared project into the `Reference` folder in the ios and android project. It should look like this.
 
-![IMAGE](/images/Screen%20Shot%202015-03-18%20at%2021.56.13.png =320x0)
+![IMAGE](/images/Screen%20Shot%202015-03-18%20at%2021.56.13.png)
 
 ###iOS
 
@@ -638,7 +638,7 @@ namespace weatherxamarinios {
 
 ##### Run the app and BOOM!
 
-![IMAGE](/images/IMG_1537.PNG =0x420)
+![IMAGE](/images/IMG_1537.PNG)
 
 ###Android
 Set your Android project as start up project.
@@ -769,4 +769,4 @@ namespace weatherxamarinandroid {
 ```
 
 ##### Run the app and BOOM!
-![IMAGE](/images/Screenshot_2015-03-19-09-44-46.png =0x420)
+![IMAGE](/images/Screenshot_2015-03-19-09-44-46.png)
