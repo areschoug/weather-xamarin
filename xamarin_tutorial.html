@@ -1,0 +1,941 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Xamarin Tutorial - Lets make an Weather app YO!</title>
+
+</head>
+<body>
+<h1>Xamarin Tutorial - Lets make an Weather app YO!</h1>
+
+<h2>Before you start</h2>
+
+<p>Download and install Xamarin Studio. This tutorial is for mac with Xamarin Studio, but most steps should be the same on other platforms.</p>
+
+<h2>Setup</h2>
+
+<h3>Create solution</h3>
+
+<h5>Protable Library</h5>
+
+<p>Create a Portable Library (PCL - Portable Class Library).</p>
+
+<ol>
+<li>Name it <code>weather-xamarin-shared</code></li>
+<li>Pick location</li>
+<li>Solution name should be <code>weather-xamarin</code>. Remove <code>-shared</code> because only the PCL will be shared.</li>
+</ol>
+
+
+<p><img src="http://hosting.monterosa.se//fmtk/tutorial/Screen%20Shot%202015-03-18%20at%2019.12.38.png" width="640" alt="IMAGE" /></p>
+
+<p>After creating the PCL you can create the iOS and Android projects.</p>
+
+<h5>iOS</h5>
+
+<ol>
+<li>Right-click your solution in the solution navigator(?)</li>
+<li>Go to <code>Add</code>. And <code>Add New Project...</code></li>
+</ol>
+
+
+<p><img src="http://hosting.monterosa.se//fmtk/tutorial/Screen%20Shot%202015-03-18%20at%2019.56.15.png" width="640" alt="IMAGE" /></p>
+
+<ol>
+<li>Create empty iPhone project.</li>
+<li>Name it <code>weather-xamarin-ios</code></li>
+</ol>
+
+
+<p><img src="http://hosting.monterosa.se//fmtk/tutorial/Screen%20Shot%202015-03-18%20at%2019.47.34.png" width="640" alt="IMAGE" /></p>
+
+<h5>Android</h5>
+
+<ol>
+<li>Right-click your solution in the solution navigator(?)</li>
+<li>Go to <code>Add</code>. And <code>Add New Project...</code></li>
+</ol>
+
+
+<p><img src="http://hosting.monterosa.se//fmtk/tutorial/Screen%20Shot%202015-03-18%20at%2019.56.15.png" width="640" alt="IMAGE" /></p>
+
+<ol>
+<li>Create Android Application</li>
+<li>Name it <code>weather-xamarin-android</code>
+<img src="http://hosting.monterosa.se//fmtk/tutorial/Screen%20Shot%202015-03-18%20at%2020.01.33.png" width="640" alt="IMAGE" /></li>
+</ol>
+
+
+<h3>Correct formating <em>(optional)</em></h3>
+
+<p>To make auto formating look the way I want it you should open your <code>.sln</code> file in the rootfolder of your project in a text editor of choise.</p>
+
+<p>Remove this if you have it: <em>(Most likely you won't have it)</em></p>
+
+<pre><code>GlobalSection(MonoDevelopProperties) = preSolution
+    //Some rows
+EndGlobalSection
+</code></pre>
+
+<p>Add this to the botom of the file, just before <code>EndGlobal</code>.</p>
+
+<pre><code>
+GlobalSection(MonoDevelopProperties) = preSolution
+        Policies = $0
+        $0.DotNetNamingPolicy = $1
+        $1.DirectoryNamespaceAssociation = None
+        $1.ResourceNamePolicy = FileFormatDefault
+        $0.TextStylePolicy = $2
+        $2.FileWidth = 120
+        $2.inheritsSet = VisualStudio
+        $2.inheritsScope = text/plain
+        $2.scope = text/x-csharp
+        $0.CSharpFormattingPolicy = $3
+        $3.NamespaceBraceStyle = EndOfLine
+        $3.ClassBraceStyle = EndOfLine
+        $3.InterfaceBraceStyle = EndOfLine
+        $3.StructBraceStyle = EndOfLine
+        $3.EnumBraceStyle = EndOfLine
+        $3.MethodBraceStyle = EndOfLine
+        $3.ConstructorBraceStyle = EndOfLine
+        $3.DestructorBraceStyle = EndOfLine
+        $3.ElseNewLinePlacement = DoNotCare
+        $3.ElseIfNewLinePlacement = DoNotCare
+        $3.EmbeddedStatementPlacement = SameLine
+        $3.BeforeMethodDeclarationParentheses = False
+        $3.BeforeMethodCallParentheses = False
+        $3.BeforeConstructorDeclarationParentheses = False
+        $3.NewLineBeforeConstructorInitializerColon = SameLine
+        $3.NewLineAfterConstructorInitializerColon = SameLine
+        $3.BeforeDelegateDeclarationParentheses = False
+        $3.AfterDelegateDeclarationParameterComma = True
+        $3.NewParentheses = False
+        $3.SpacesBeforeBrackets = False
+        $3.inheritsSet = Mono
+        $3.inheritsScope = text/x-csharp
+        $3.scope = text/x-csharp
+        $0.TextStylePolicy = $4
+        $4.FileWidth = 120
+        $4.TabsToSpaces = False
+        $4.inheritsSet = VisualStudio
+        $4.inheritsScope = text/plain
+        $4.scope = text/plain
+        $0.TextStylePolicy = $5
+        $5.inheritsSet = null
+        $5.scope = application/config+xml
+        $0.XmlFormattingPolicy = $6
+        $6.inheritsSet = null
+        $6.scope = application/config+xml
+    EndGlobalSection
+</code></pre>
+
+<h3>Set start project</h3>
+
+<p>Right-click on the projcet you want to use as start project (ios or android) select <code>Set as Startup Project</code></p>
+
+<h2>Portable library</h2>
+
+<p>In the shared library we have as much of the sharable code as possible. In this case we will have <strong>APIClient</strong>, <strong>Controller</strong>, <strong>Weather</strong>.</p>
+
+<p><strong>APIClient</strong> will have all the API-connection code.</p>
+
+<p><strong>Controller</strong> will be the connection between <code>ios</code>/<code>android</code> and <code>shared</code></p>
+
+<p><strong>Weather</strong> will be the data model.</p>
+
+<h5>Add packages</h5>
+
+<p>To make requests and parse JSON we need to add some packages.</p>
+
+<ol>
+<li>Right-click the <code>weather-xamarin-shared</code></li>
+<li>Go to <code>Add</code>. And <code>Add NuGet Packages...</code><img src="http://hosting.monterosa.se//fmtk/tutorial/Screen%20Shot%202015-03-18%20at%2020.22.02.png" width="640" alt="IMAGE" /></li>
+<li>Select <code>Json.NET</code> and <code>Microsoft HTTP Client Libraries</code></li>
+<li>Click <code>Add Packages</code></li>
+</ol>
+
+
+<h5>Weather Data Model</h5>
+
+<ol>
+<li>Add a folder to your PCL. Name it <code>Models</code></li>
+<li>Right-click it and <code>Add File..</code>.</li>
+<li>Create a General > Empty Class. Name it <code>Weather</code>.</li>
+</ol>
+
+
+<p>It should look like this</p>
+
+<pre><code>using System;
+
+namespace weatherxamarinshared {
+
+    public class Weather {
+
+        public Weather() {
+        }
+
+    }
+}
+</code></pre>
+
+<p>We will use Open Weather Map to get our weather data. (http://openweathermap.org/api)</p>
+
+<p>Example data:</p>
+
+<pre><code>{
+  "coord": {
+    "lon": 18.06,
+    "lat": 59.33
+  },
+  "sys": {
+    "type": 1,
+    "id": 5420,
+    "message": 0.0144,
+    "country": "SE",
+    "sunrise": 1426654463,
+    "sunset": 1426697827
+  },
+  "weather": [
+    {
+      "id": 800,
+      "main": "Clear",
+      "description": "Sky is Clear",
+      "icon": "01n"
+    }
+  ],
+  "base": "cmc stations",
+  "main": {
+    "temp": 276.05,
+    "pressure": 1033,
+    "humidity": 69,
+    "temp_min": 274.82,
+    "temp_max": 278.15
+  },
+  "wind": {
+    "speed": 0.5,
+    "deg": 0
+  },
+  "clouds": {
+    "all": 0
+  },
+  "dt": 1426708086,
+  "id": 2673730,
+  "name": "Stockholm",
+  "cod": 200
+}
+</code></pre>
+
+<p>To parse this json we need to add <code>using Newtonsoft.Json;</code> to the top of the file.</p>
+
+<p>And then map the json to C#-properties like this.</p>
+
+<pre><code>[JsonProperty(PropertyName = "id")]
+public int Id { get; set; }
+</code></pre>
+
+<p>For neasted json objects we need to add an new object to parse it. For example <code>main</code>. You could add a new file and add the class <code>WeatherMain</code> or you could just add the class inside the <code>Weather</code> Like this:</p>
+
+<pre><code>namespace fmtkxamarinshared {
+
+  public class Weather {
+
+    [JsonProperty(PropertyName = "id")]
+    public int Id { get; set; }
+
+    [JsonProperty(PropertyName = "main")]
+    public WeatherMain Main { get; set; }
+
+    public Weather () { }
+
+    public class WeatherMain {
+
+      [JsonProperty(PropertyName = "temp")]
+      public double Temp { get; set; }
+
+      [JsonProperty(PropertyName = "pressure")]
+      public double Pressure { get; set; }
+
+      [JsonProperty(PropertyName = "humidity")]
+      public double Humidity { get; set; }
+
+      public WeatherMain () {}
+
+    }
+
+  }
+
+}
+</code></pre>
+
+<p>When you need to parse an json-array like <code>"weather"</code> just add <code>using System.Collections.Generic;</code> to the top. And add <code>List&lt;WeatherObject&gt;</code> as object for the property.</p>
+
+<pre><code>[JsonProperty(PropertyName = "weather")]
+public List&lt;WeatherObject&gt; WeatherObjects { get; set; }
+
+public class WeatherObject {
+
+  [JsonProperty(PropertyName = "description")]
+  public string Description{ get; set; }
+
+  public WeatherObject () {}
+
+}
+</code></pre>
+
+<p>Full <code>Weather.cs</code></p>
+
+<pre><code>using System;
+
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
+namespace weatherxamarinshared {
+
+    public class Weather {
+
+        [JsonProperty(PropertyName = "id")]
+        public int Id { get; set; }
+
+        [JsonProperty(PropertyName = "main")]
+        public WeatherMain Main { get; set; }
+
+        [JsonProperty(PropertyName = "weather")]
+        public List&lt;WeatherObject&gt; WeatherObjects { get; set; }
+
+        public Weather() {
+        }
+
+        public class WeatherObject {
+
+            [JsonProperty(PropertyName = "description")]
+            public string Description{ get; set; }
+
+            public WeatherObject() {
+            }
+
+        }
+
+        public class WeatherMain {
+
+            [JsonProperty(PropertyName = "temp")]
+            public double Temp { get; set; }
+
+            [JsonProperty(PropertyName = "pressure")]
+            public double Pressure { get; set; }
+
+            [JsonProperty(PropertyName = "humidity")]
+            public double Humidity { get; set; }
+
+            public WeatherMain() {
+            }
+
+        }
+
+    }
+
+}
+</code></pre>
+
+<h5>APIClient</h5>
+
+<ol>
+<li>Add a folder to your PCL. Name it <code>API</code></li>
+<li>Right-click it and <code>Add File..</code>.</li>
+<li>Create a General > Empty Class. Name it <code>APIClient</code>.</li>
+</ol>
+
+
+<p>Your file should look like this</p>
+
+<pre><code>using System;
+
+namespace weatherxamarinshared {
+
+    public class APIClient {
+
+        public APIClient() {
+
+        }
+    }
+}
+</code></pre>
+
+<p>We want our <code>APIClient</code> to be a Singleton. Lets do that.</p>
+
+<pre><code>private static readonly APIClient _instance = new APIClient();
+
+public static APIClient Instance {
+    get { return _instance; }
+}        
+</code></pre>
+
+<p>To make the get request we need to import some stuff to our client. Add these:</p>
+
+<pre><code>
+using System.Net.Http;          //to make http requests
+using System.Threading.Tasks;   //to make async requests
+using Newtonsoft.Json;          //to parse json
+</code></pre>
+
+<p>(If <code>.HTTP</code> or <code>.JSON</code> make sure that they are in the packages folder, if not add them with NuGet)</p>
+
+<p>We need a <code>HttpClient</code> to make requests, so make a private <code>HttpClient</code> in your <code>APIClient</code> like this.</p>
+
+<pre><code>private static readonly HttpClient _client = new HttpClient();
+</code></pre>
+
+<p>Lets do our request.</p>
+
+<pre><code>
+public async void GetWeather(Action&lt;Weather&gt; callback) { // 1
+
+    string url = "http://api.openweathermap.org/data/2.5/weather?q=stockholm"; // 2
+
+    Task&lt;HttpResponseMessage&gt; task = _client.GetAsync(url); // 3
+
+    HttpResponseMessage response = await task; // 4
+    string responseString = await response.Content.ReadAsStringAsync(); // 5
+
+    Weather weather = JsonConvert.DeserializeObject&lt;Weather&gt;(responseString); // 6
+
+    callback(weather); // 7
+
+}
+</code></pre>
+
+<ol>
+<li>Name our method <code>GetWeather</code> it takes one parameter <code>Action&lt;Weather&gt; callback</code> it's the callback action that we want to fire when the request is done. <code>async</code> is to tell the program not to wait until function is finnished.</li>
+<li>Url for weather in Stockholm</li>
+<li>This line makes the get call.</li>
+<li><code>await</code> tells the thread that it should wait for the <code>task</code> to finish before carrying on. And we will get the <code>HttpResponseMessage</code> with all the good stuff.</li>
+<li>To parse the response to an string we need to (a)wait again.</li>
+<li>With our response string we can deserialize it to our <code>Weather</code>-object</li>
+<li>Return the weather object in the callback action.</li>
+</ol>
+
+
+<p>Full <code>APIClient.cs</code></p>
+
+<pre><code>using System;
+
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+namespace weatherxamarinshared {
+
+    public class APIClient {
+
+        private static readonly HttpClient _client = new HttpClient();
+        private static readonly APIClient _instance = new APIClient();
+
+        public static APIClient Instance {
+            get { return _instance; }
+        }
+
+        public APIClient() {
+
+        }
+
+        public async void GetWeather(Action&lt;Weather&gt; callback) {
+
+            string url = "http://api.openweathermap.org/data/2.5/weather?q=stockholm";
+
+            Task&lt;HttpResponseMessage&gt; task = _client.GetAsync(url);
+
+            HttpResponseMessage response = await task;
+            string responseString = await response.Content.ReadAsStringAsync();
+
+            Weather weather = JsonConvert.DeserializeObject&lt;Weather&gt;(responseString); 
+
+            callback(weather);
+
+        }
+
+    }
+
+}
+</code></pre>
+
+<h5>Controller</h5>
+
+<p>In this class we should make all the connections between the app-projects and the API. (And possible other non-platform specific code)</p>
+
+<ol>
+<li>Create a folder called <code>Controllers</code> and add a Empty class called <code>Controller</code>.</li>
+<li>Add a <code>public</code> <code>Weather</code> property called <code>Weather</code></li>
+<li>Create a method called <code>FetchWeather</code> with an <code>Action&lt;Weather&gt;</code> as parameter.</li>
+<li>In the method call the <code>APIClient</code>s <code>GetWeather</code> method and in the callback set <code>Weather</code> to the object from the callback.</li>
+</ol>
+
+
+<p>Your <code>Controller</code> should look like this:</p>
+
+<pre><code>namespace weatherxamarinshared {
+    public class Controller {
+
+        public Weather Weather;
+
+        public Controller() {
+        }
+
+        public void FetchWeather(Action&lt;Weather&gt; callback) {
+
+            APIClient.Instance.GetWeather((w =&gt; {
+                Weather = w;        
+                callback(Weather);
+            }));
+
+        }
+    }
+}
+</code></pre>
+
+<h2>Platform specific</h2>
+
+<h3>Reference your PLC</h3>
+
+<p>We need to add the PCL reference to our ios and android projects. Just drag-and-drop the shared project into the <code>Reference</code> folder in the ios and android project. It should look like this.</p>
+
+<p><img src="http://hosting.monterosa.se//fmtk/tutorial/Screen%20Shot%202015-03-18%20at%2021.56.13.png" width="320" alt="IMAGE" /></p>
+
+<h3>iOS</h3>
+
+<h5>Create view controller</h5>
+
+<p>Add a <code>Empty class</code> called <code>WeatherViewController</code> in <code>Classes/UI/ViewControllers</code>. (You need to create the folders as well)</p>
+
+<p>Make your <code>WeatherViewController</code> a sub-class of <code>UIViewController</code>. Add <code>using MonoTouch.UIKit;</code></p>
+
+<p>Override <code>ViewDidLoad()</code> and set background color on the view.</p>
+
+<pre><code> public class WeatherViewController : UIViewController {
+
+        public WeatherViewController() { }
+
+        public override void ViewDidLoad() {
+            base.ViewDidLoad();
+            View.BackgroundColor = UIColor.DarkGray;
+        }
+
+    }
+</code></pre>
+
+<p>In your <code>AppDelegate</code>s <code>FinishedLaunching</code>-method set the <code>UIWindow</code>s <code>RootViewController</code> to our <code>WeatherViewController</code></p>
+
+<pre><code>public override bool FinishedLaunching(UIApplication app, NSDictionary options) {
+
+    window = new UIWindow(UIScreen.MainScreen.Bounds);
+    window.RootViewController = new WeatherViewController();
+    window.MakeKeyAndVisible();
+
+    return true;
+}
+</code></pre>
+
+<h5>Create labels</h5>
+
+<p>We need two labels to show the weather description and tempature in. Make two private <code>UILabel</code> properties. And create them in <code>ViewDidLoad()</code>. Add <code>using System.Drawing;</code> to create <code>RectangleF</code> for frames</p>
+
+<pre><code>  public class WeatherViewController : UIViewController {
+
+    private UILabel _descriptionLabel;
+    private UILabel _temperatureLabel;
+
+    public WeatherViewController() {
+    }
+
+    public override void ViewDidLoad() {
+        base.ViewDidLoad();
+        View.BackgroundColor = UIColor.DarkGray;
+
+        _descriptionLabel = new UILabel(new RectangleF(0, 20, View.Frame.Width, 60));
+        _descriptionLabel.TextAlignment = UITextAlignment.Center;
+        _descriptionLabel.Font = UIFont.FromName("Helvetica-Bold", 20f);
+        _descriptionLabel.Text = "description label";
+        View.AddSubview(_descriptionLabel);
+
+        //add _temperatureLabel below _descriptionLabel
+        _temperatureLabel = new UILabel(new RectangleF(0, _descriptionLabel.Frame.Bottom, View.Frame.Width, 50));
+        _temperatureLabel.TextAlignment = UITextAlignment.Center;
+        _temperatureLabel.Font = UIFont.FromName("Helvetica", 14f);
+        _temperatureLabel.Text = "temperature label";
+        View.AddSubview(_temperatureLabel);
+
+    }
+
+}
+</code></pre>
+
+<h5>Add Controller to view controller</h5>
+
+<p>To use things from our shared project we need to improt it in to our view controller. Like this:</p>
+
+<pre><code>using weatherxamarinshared;
+</code></pre>
+
+<p>Add a readonly private <code>Controller</code> property named <code>_controller</code>.</p>
+
+<pre><code>private readonly Controller _controller = new Controller();
+</code></pre>
+
+<p>Add a method that updates our labels with the data from a <code>Weather</code> object.</p>
+
+<pre><code>private void UpdateWeather(Weather weather) {
+    double absoluteZeroInCelsius = 273.15;// 1
+    _descriptionLabel.Text = weather.WeatherObjects[0].Description; // 2
+    _temperatureLabel.Text = String.Format("{0:0.0}°C", weather.Main.Temp - absoluteZeroInCelsius); // 3
+}
+</code></pre>
+
+<ol>
+<li>because OpenWeatherMap uses kelvin</li>
+<li>Set description text. <code>weather.WeatherObjects</code> is an array so we use <code>[0]</code> to get the first object.</li>
+<li>Set tempature text. With string fromat.</li>
+</ol>
+
+
+<p>To fetch data add this to <code>ViewDidLoad</code></p>
+
+<pre><code>_controller.FetchWeather(UpdateWeather);
+</code></pre>
+
+<p>This will run <code>UpdateWeather</code> function when the controller fires the callback.</p>
+
+<p>Full <code>WeatherViewController</code></p>
+
+<pre><code>using System;
+
+using MonoTouch.UIKit;
+using System.Drawing;
+
+using weatherxamarinshared;
+
+namespace weatherxamarinios {
+
+    public class WeatherViewController : UIViewController {
+
+        private readonly Controller _controller = new Controller();
+
+        private UILabel _descriptionLabel;
+        private UILabel _temperatureLabel;
+
+        public WeatherViewController() {
+        }
+
+        public override void ViewDidLoad() {
+            base.ViewDidLoad();
+            View.BackgroundColor = UIColor.DarkGray;
+
+            _descriptionLabel = new UILabel(new RectangleF(0, 20, View.Frame.Width, 60));
+            _descriptionLabel.TextAlignment = UITextAlignment.Center;
+            _descriptionLabel.Font = UIFont.FromName("Helvetica-Bold", 20f);
+            _descriptionLabel.Text = "description label";
+            View.AddSubview(_descriptionLabel);
+
+            //add _temperatureLabel below _descriptionLabel
+            _temperatureLabel = new UILabel(new RectangleF(0, _descriptionLabel.Frame.Bottom, View.Frame.Width, 50));
+            _temperatureLabel.TextAlignment = UITextAlignment.Center;
+            _temperatureLabel.Font = UIFont.FromName("Helvetica", 14f);
+            _temperatureLabel.Text = "temperature label";
+            View.AddSubview(_temperatureLabel);
+
+            _controller.FetchWeather(UpdateWeather);
+
+        }
+
+        private void UpdateWeather(Weather weather) {
+            double absoluteZeroInCelsius = 273.15;// 1
+            _descriptionLabel.Text = weather.WeatherObjects[0].Description; // 2
+            _temperatureLabel.Text = String.Format("{0:0.0}°C", weather.Main.Temp - absoluteZeroInCelsius); // 3
+        }
+
+    }
+}
+</code></pre>
+
+<h5>Run the app and BOOM!</h5>
+
+<p><img src="http://hosting.monterosa.se//fmtk/tutorial/IMG_1537.PNG" height="420" alt="IMAGE" /></p>
+
+<h3>Android</h3>
+
+<p>Set your Android project as start up project.</p>
+
+<h5>Create TextViews</h5>
+
+<p>Go to <code>weather-xamarin-android/Resources/layout/Main.axml</code>add two labels to this layout. One for description and one for temperature. Your layout should look like this:</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"&gt;
+    &lt;TextView
+        android:text="Text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:id="@+id/txt_description" /&gt;
+    &lt;TextView
+        android:text="Text"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:id="@+id/txt_temperature" /&gt;
+&lt;/LinearLayout&gt;
+</code></pre>
+
+<p>Go to your <code>MainActivity</code>
+Add two private <code>TextView</code> properties.<code>_descriptionTextView</code> and <code>_temperatureTextView</code>. And use <code>FindViewById</code> in <code>OnCreate</code>-method to link with the <code>.axml</code>.</p>
+
+<pre><code>private TextView _descriptionTextView;
+private TextView _temperatureTextView;
+
+protected override void OnCreate(Bundle bundle) {
+    base.OnCreate(bundle);
+
+    SetContentView(Resource.Layout.Main);
+
+    _descriptionTextView = FindViewById&lt;TextView&gt;(Resource.Id.txt_description);
+    _temperatureTextView = FindViewById&lt;TextView&gt;(Resource.Id.txt_temperature);
+
+}
+</code></pre>
+
+<h5>Add Controller to Activity</h5>
+
+<p>To use things from our shared project we need to improt it in to our view controller. Like this:</p>
+
+<pre><code>using weatherxamarinshared;
+</code></pre>
+
+<p>Add a readonly private <code>Controller</code> property named <code>_controller</code>.</p>
+
+<pre><code>private readonly Controller _controller = new Controller();
+</code></pre>
+
+<p>Add a method that updates our labels with the data from a <code>Weather</code> object.</p>
+
+<pre><code>private void UpdateWeather(Weather weather) {
+    double absoluteZeroInCelsius = 273.15;// 1
+    _descriptionTextView.Text = weather.WeatherObjects[0].Description; // 2
+    _descriptionTextView.Text = String.Format("{0:0.0}°C", weather.Main.Temp - absoluteZeroInCelsius); // 3
+}
+</code></pre>
+
+<ol>
+<li>Because OpenWeatherMap uses kelvin</li>
+<li>Set description text. <code>weather.WeatherObjects</code> is an array so we use <code>[0]</code> to get the first object.</li>
+<li>Set tempature text. With string fromat.</li>
+</ol>
+
+
+<p>To fetch data add this to <code>ViewDidLoad</code></p>
+
+<pre><code>_controller.FetchWeather(UpdateWeather);
+</code></pre>
+
+<p>This will run <code>UpdateWeather</code> function when the controller fires the callback.</p>
+
+<p>Full <code>MainActivity.cs</code></p>
+
+<pre><code>using System;
+
+using Android.App;
+using Android.Content;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using Android.OS;
+
+using weatherxamarinshared;
+
+namespace weatherxamarinandroid {
+    [Activity(Label = "weather-xamarin-android", MainLauncher = true, Icon = "@drawable/icon")]
+    public class MainActivity : Activity {
+
+        private readonly Controller _controller = new Controller();
+
+        private TextView _descriptionTextView;
+        private TextView _temperatureTextView;
+
+        protected override void OnCreate(Bundle bundle) {
+            base.OnCreate(bundle);
+
+            SetContentView(Resource.Layout.Main);
+
+            _descriptionTextView = FindViewById&lt;TextView&gt;(Resource.Id.txt_description);
+            _temperatureTextView = FindViewById&lt;TextView&gt;(Resource.Id.txt_temperature);
+
+            _controller.FetchWeather(UpdateWeather);
+
+        }
+
+        private void UpdateWeather(Weather weather) {
+            double absoluteZeroInCelsius = 273.15;// 1
+            _descriptionTextView.Text = weather.WeatherObjects[0].Description; // 2
+            _temperatureTextView.Text = String.Format("{0:0.0}C°", weather.Main.Temp - absoluteZeroInCelsius); // 3
+        }
+
+    }
+
+}
+</code></pre>
+
+<h5>Run the app and BOOM!</h5>
+
+<p><img src="http://hosting.monterosa.se//fmtk/tutorial/Screenshot_2015-03-19-09-44-46.png" height="420" alt="IMAGE" /></p>
+</body>
+</html>
