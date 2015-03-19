@@ -152,7 +152,7 @@ We will use Open Weather Map to get our weather data. (http://openweathermap.org
 
 Example data:
 
-```
+```json
 {
   "coord": {
     "lon": 18.06,
@@ -200,7 +200,7 @@ To parse this json we need to add `using Newtonsoft.Json;` to the top of the fil
 
 And then map the json to C#-properties like this.
 
-```
+```cs
 [JsonProperty(PropertyName = "id")]
 public int Id { get; set; }
 		
@@ -208,7 +208,7 @@ public int Id { get; set; }
 
 For neasted json objects we need to add an new object to parse it. For example `main`. You could add a new file and add the class `WeatherMain` or you could just add the class inside the `Weather` Like this:
 
-```
+```cs
 namespace fmtkxamarinshared {
 
   public class Weather {
@@ -244,7 +244,7 @@ namespace fmtkxamarinshared {
 
 When you need to parse an json-array like `"weather"` just add `using System.Collections.Generic;` to the top. And add `List<WeatherObject>` as object for the property.
 
-```
+```cs
 [JsonProperty(PropertyName = "weather")]
 public List<WeatherObject> WeatherObjects { get; set; }
 
@@ -260,7 +260,7 @@ public class WeatherObject {
 
 Full `Weather.cs`
 
-```
+```cs
 using System;
 
 using System.Collections.Generic;
@@ -320,7 +320,7 @@ namespace weatherxamarinshared {
 
 Your file should look like this
 
-```
+```cs
 using System;
 
 namespace weatherxamarinshared {
@@ -337,7 +337,7 @@ namespace weatherxamarinshared {
 
 We want our `APIClient` to be a Singleton. Lets do that.
 
-```
+```cs
 private static readonly APIClient _instance = new APIClient();
 
 public static APIClient Instance {
@@ -348,7 +348,7 @@ public static APIClient Instance {
 
 To make the get request we need to import some stuff to our client. Add these:
 
-```
+```cs
 
 using System.Net.Http; 			//to make http requests
 using System.Threading.Tasks; 	//to make async requests
@@ -358,13 +358,13 @@ using Newtonsoft.Json; 			//to parse json
 
 We need a `HttpClient` to make requests, so make a private `HttpClient` in your `APIClient` like this.
 
-```
+```cs
 private static readonly HttpClient _client = new HttpClient();
 ```
 
 Lets do our request.
 
-```
+```cs
 
 public async void GetWeather(Action<Weather> callback) { // 1
 
@@ -394,7 +394,7 @@ public async void GetWeather(Action<Weather> callback) { // 1
 
 Full `APIClient.cs`
 
-```
+```cs
 using System;
 
 using System.Net.Http;
@@ -449,7 +449,7 @@ In this class we should make all the connections between the app-projects and th
 Your `Controller` should look like this:
 
 
-```
+```cs
 namespace weatherxamarinshared {
     public class Controller {
 
@@ -486,7 +486,7 @@ Make your `WeatherViewController` a sub-class of `UIViewController`. Add `using 
 
 Override `ViewDidLoad()` and set background color on the view.
 
-```
+```cs
  public class WeatherViewController : UIViewController {
         
         public WeatherViewController() { }
@@ -500,7 +500,7 @@ Override `ViewDidLoad()` and set background color on the view.
 ```
 In your `AppDelegate`s `FinishedLaunching`-method set the `UIWindow`s `RootViewController` to our `WeatherViewController`
 
-```
+```cs
 public override bool FinishedLaunching(UIApplication app, NSDictionary options) {
 
     window = new UIWindow(UIScreen.MainScreen.Bounds);
@@ -514,7 +514,7 @@ public override bool FinishedLaunching(UIApplication app, NSDictionary options) 
 #####Create labels
 We need two labels to show the weather description and tempature in. Make two private `UILabel` properties. And create them in `ViewDidLoad()`. Add `using System.Drawing;` to create `RectangleF` for frames
 
-```
+```cs
   public class WeatherViewController : UIViewController {
         
     private UILabel _descriptionLabel;
@@ -549,19 +549,19 @@ We need two labels to show the weather description and tempature in. Make two pr
 
 To use things from our shared project we need to improt it in to our view controller. Like this:
 
-```
+```cs
 using weatherxamarinshared;
 ```
 
 Add a readonly private `Controller` property named `_controller`.
 
-```
+```cs
 private readonly Controller _controller = new Controller();
 ```
 
 Add a method that updates our labels with the data from a `Weather` object.
 
-```
+```cs
 private void UpdateWeather(Weather weather) {
 	double absoluteZeroInCelsius = 273.15;// 1
 	_descriptionLabel.Text = weather.WeatherObjects[0].Description; // 2
@@ -576,14 +576,14 @@ private void UpdateWeather(Weather weather) {
 
 To fetch data add this to `ViewDidLoad`
 
-```
+```cs
 _controller.FetchWeather(UpdateWeather);
 ```
 This will run `UpdateWeather` function when the controller fires the callback.
 
 Full `WeatherViewController`
 
-```
+```cs
 using System;
 
 using MonoTouch.UIKit;
@@ -647,7 +647,7 @@ Set your Android project as start up project.
 
 Go to `weather-xamarin-android/Resources/layout/Main.axml`add two labels to this layout. One for description and one for temperature. Your layout should look like this:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -671,7 +671,7 @@ Go to `weather-xamarin-android/Resources/layout/Main.axml`add two labels to this
 Go to your `MainActivity`
 Add two private `TextView` properties.`_descriptionTextView` and `_temperatureTextView`. And use `FindViewById` in `OnCreate`-method to link with the `.axml`.
 
-```
+```cs
 private TextView _descriptionTextView;
 private TextView _temperatureTextView;
 
@@ -702,7 +702,7 @@ private readonly Controller _controller = new Controller();
 
 Add a method that updates our labels with the data from a `Weather` object.
 
-```
+```cs
 private void UpdateWeather(Weather weather) {
 	double absoluteZeroInCelsius = 273.15;// 1
 	_descriptionTextView.Text = weather.WeatherObjects[0].Description; // 2
@@ -724,7 +724,7 @@ This will run `UpdateWeather` function when the controller fires the callback.
 
 Full `MainActivity.cs`
 
-```
+```cs
 using System;
 
 using Android.App;
