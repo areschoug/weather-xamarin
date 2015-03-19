@@ -122,7 +122,7 @@ In the shared library we have as much of the sharable code as possible. In this 
 To make requests and parse JSON we need to add some packages.
 
 1. Right-click the `weather-xamarin-shared`
-2. Go to `Add`. And `Add NuGet Packages...`![IMAGE](http://hosting.monterosa.se//fmtk/tutorial/Screen%20Shot%202015-03-18%20at%2020.22.02.png =640x0)
+2. Go to `Add`. And `Add NuGet Packages...`![IMAGE](/images/Screen%20Shot%202015-03-18%20at%2020.22.02.png =640x0)
 3. Select `Json.NET` and `Microsoft HTTP Client Libraries`
 4. Click `Add Packages`
 
