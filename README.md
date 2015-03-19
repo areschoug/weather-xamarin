@@ -23,22 +23,22 @@ After creating the PCL you can create the iOS and Android projects.
 1. Right-click your solution in the solution navigator(?)
 2. Go to `Add`. And `Add New Project...`
 
-![IMAGE](/images/Screen%20Shot%202015-03-18%20at%2019.56.15.png =640x0)
+![IMAGE](/images/Screen%20Shot%202015-03-18%20at%2019.56.15.png)
 
 1. Create empty iPhone project.
 2. Name it `weather-xamarin-ios`
 
-![IMAGE](/images/Screen%20Shot%202015-03-18%20at%2019.47.34.png =640x0)
+![IMAGE](/images/Screen%20Shot%202015-03-18%20at%2019.47.34.png)
 
 #####Android
 1. Right-click your solution in the solution navigator(?)
 2. Go to `Add`. And `Add New Project...`
 
-![IMAGE](/images/Screen%20Shot%202015-03-18%20at%2019.56.15.png =640x0)
+![IMAGE](/images/Screen%20Shot%202015-03-18%20at%2019.56.15.png)
 
 1. Create Android Application
 2. Name it `weather-xamarin-android`
-![IMAGE](/images/Screen%20Shot%202015-03-18%20at%2020.01.33.png =640x0)
+![IMAGE](/images/Screen%20Shot%202015-03-18%20at%2020.01.33.png)
 
 ###Correct formating *(optional)*
 To make auto formating look the way I want it you should open your `.sln` file in the rootfolder of your project in a text editor of choise.
@@ -122,7 +122,7 @@ In the shared library we have as much of the sharable code as possible. In this 
 To make requests and parse JSON we need to add some packages.
 
 1. Right-click the `weather-xamarin-shared`
-2. Go to `Add`. And `Add NuGet Packages...`![IMAGE](/images/Screen%20Shot%202015-03-18%20at%2020.22.02.png =640x0)
+2. Go to `Add`. And `Add NuGet Packages...`![IMAGE](/images/Screen%20Shot%202015-03-18%20at%2020.22.02.png)
 3. Select `Json.NET` and `Microsoft HTTP Client Libraries`
 4. Click `Add Packages`
 
