@@ -14,7 +14,7 @@ Create a Portable Library (PCL - Portable Class Library).
 2. Pick location
 3. Solution name should be `weather-xamarin`. Remove `-shared` because only the PCL will be shared. 
 
-![IMAGE](http://hosting.monterosa.se//fmtk/tutorial/Screen%20Shot%202015-03-18%20at%2019.12.38.png =640x0)
+![IMAGE](/images/Screen%20Shot%202015-03-18%20at%2019.12.38.png =640x0)
 
 After creating the PCL you can create the iOS and Android projects.
 
